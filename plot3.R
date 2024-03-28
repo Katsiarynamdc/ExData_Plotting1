@@ -4,6 +4,7 @@ file <- "household_power_consumption.txt"
 Data <- read.table(file, header = TRUE, sep = ";", dec = ".", na.strings = "?")
 Data_ready <- Data[Data$Date %in% c("1/2/2007","2/2/2007"), ]
 
+Sys.setlocale("LC_TIME", "English")
 Date_time <- as.POSIXct(paste(Data_ready$Date, Data_ready$Time), format="%d/%m/%Y %H:%M:%S")
 
 Data_ready$Date_time <- Date_time
